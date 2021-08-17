@@ -1,14 +1,11 @@
 #include <QtWidgets>
-#include <stdlib.h>
-
-#include "./golfield.h"
+#include "./golmain.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    GolField *field = new GolField;
-    field->show();
-    field->start();
+    GolMain mainWindow;
+    mainWindow.show();
 
     return app.exec();
 }

@@ -11,7 +11,11 @@ class GolField : public QFrame {
  public:
     GolField(QWidget *parent = 0);
     QSize sizeHint() const;
-    void start();
+
+public slots:
+   void start();
+   void pause();
+   void reset();
 
  protected:
     void paintEvent(QPaintEvent *event);

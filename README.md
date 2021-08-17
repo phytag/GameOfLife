@@ -14,7 +14,6 @@ QPainter Qt class is used to draw the Game of Life field. Initial cell grid is g
 
 To do list:
 
-1. Start and Pause buttons.
-2. Print Iteration number and number of live cells.
-3. Multithreading.  
+1. Print Iteration number and number of live cells.
+2. Multithreading.  
 

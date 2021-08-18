@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <ctime>
 #include <QtWidgets>
 
@@ -25,7 +24,7 @@ void GolField::iterate() {
     for (int i = 0; i < fieldWidth * fieldHeight; i++) {
         tmpGrid << false;
     }
-    for (int n = 0; n < fieldWidth*fieldHeight; n++) {
+    for (int n = 0; n < fieldWidth * fieldHeight; n++) {
         int nbrCount = neighborCount(n);
 
         /*Any live cell with two or three live neighbours survives.*/
@@ -33,10 +32,24 @@ void GolField::iterate() {
 
         if ((grid[n] && (nbrCount == 2 || nbrCount == 3)) || (!grid[n] && (nbrCount == 3)))
             tmpGrid[n] = true;
-
     }
     grid = tmpGrid;
     iteration++;
+
+    emit changeIterationsLabel(tr("Iterations: %1").arg(iteration));
+    emit changeLiveCellsLabel(tr("Ratio of Alive Cells: %1 %").arg(ratioLiveCells(), 4, 'f', 1));
+}
+
+/**********************************************/
+/*****Calculates the number of cells alive*****/
+/**********************************************/
+
+double GolField::ratioLiveCells(){
+    int cellsAlive = 0;
+    for (int i = 0; i < fieldWidth * fieldHeight; i++)
+        if(grid[i]) cellsAlive++;
+
+    return ((float)cellsAlive / (fieldWidth * fieldHeight)) * 100;
 }
 
 /**********************************************/
@@ -108,6 +121,9 @@ void GolField::pause() {
 void GolField::reset() {
     timer.stop();
     populate();
+    iteration = 0;
+    emit changeIterationsLabel(tr("Iterations: %1").arg(iteration));
+    emit changeLiveCellsLabel(tr("Ratio of Alive Cells: %1 %").arg(ratioLiveCells(), 4, 'f', 1));
 }
 
 

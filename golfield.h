@@ -11,11 +11,16 @@ class GolField : public QFrame {
  public:
     GolField(QWidget *parent = 0);
     QSize sizeHint() const;
+    double ratioLiveCells();
 
 public slots:
    void start();
    void pause();
    void reset();
+
+signals:
+   void changeIterationsLabel(QString);
+   void changeLiveCellsLabel(QString);
 
  protected:
     void paintEvent(QPaintEvent *event);

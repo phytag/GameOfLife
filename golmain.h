@@ -5,6 +5,7 @@
 
 class GolField;
 class QPushButton;
+class QLabel;
 
 class GolMain : public QWidget {
 	Q_OBJECT
@@ -18,6 +19,8 @@ private:
 	QPushButton *pauseButton;
 	QPushButton *resetButton;
 
+    QLabel *liveCellsLabel;
+    QLabel *iterationLabel;
 };
 
 #endif  // GOLMAIN_H_

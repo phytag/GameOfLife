@@ -4,6 +4,7 @@
 #include <QBasicTimer>
 #include <QFrame>
 
+class GolGrid;
 
 class GolField : public QFrame {
   Q_OBJECT
@@ -37,11 +38,9 @@ signals:
     double popRatio;
 
     QBasicTimer timer;
-    QVector<bool> grid;
-    QVector<bool> tmpGrid;
+    GolGrid *grid;
 
     void populate();
-    int neighborCount(int cellNo);
     void iterate();
 
 };

@@ -6,9 +6,13 @@ CONFIG += c++11
 
 HEADERS += \
     golfield.h \
-    golmain.h
+    golgrid.h \
+    golmain.h \
+    grid.h
 
 SOURCES += \
     golfield.cpp \
+    golgrid.cpp \
     golmain.cpp \
+    grid.cpp \
     main.cpp

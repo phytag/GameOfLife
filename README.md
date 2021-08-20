@@ -7,6 +7,8 @@ Short rules of the game:
 
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
+Gird class is constructed for the management of 2D grid objects.
+GolGrid is subclass of Grid class. GolGrid implements the logic of the Game of Life.
 QFrame Qt class is used to create the field in which Game of Life takes place.
 Qvector is used as a container for the Game of Life cell grid information (true if cell is live, false if cell is dead).
 QBasicTimer Qt class is used to implement timer with specified time step length.
